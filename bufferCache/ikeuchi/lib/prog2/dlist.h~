@@ -1,0 +1,4 @@
+
+
+void insert_hash(buf *h, buf *p, int where);
+void remove_hash(buf *p);

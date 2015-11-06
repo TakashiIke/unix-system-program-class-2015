@@ -1,0 +1,40 @@
+#include "buf.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
+
+void insert_head(buf *h, buf *p);
+void insert_tail(buf *h, buf *p);
+void insert_hash(buf *h, buf *p, int where);
+void remove_hash(buf *p);
+
+void insert_head(buf *h, buf *p){
+  p -> hash_bp = h;
+  p -> hash_fp = h -> hash_fp;
+  h -> hash_fp -> hash_bp = p;
+  h -> hash_fp = p;
+}
+
+void insert_tail(buf *h, buf *p){
+  p -> hash_fp = h;
+  p -> hash_bp = h -> hash_bp;
+  h -> hash_bp -> hash_fp = p;
+  h -> hash_bp = p;
+}
+
+void remove_hash(buf *p){
+  h -> hash_fp = p -> hash_fp;
+  h -> hash_fp -> hash_bp = p -> hash_bp;
+  p -> hash_fp = NULL;
+  p -> hash_bp = NULL;
+}
+
+// if where = 0, call insert_head call insert_tail otherwise
+void insert_hash(buf *h, buf *p, int where){
+  if(!where){
+    insert_head(h, p);
+  }
+  else{
+    insert_tail(h, p);
+  }
+}

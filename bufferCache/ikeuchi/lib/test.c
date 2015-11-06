@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+  int p = NULL;
+  if(!p){
+    printf("p != NULLn");
+  }
+  else{
+    printf("p == NULL\n"); 
+  }
+  return 0;
+}

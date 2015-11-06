@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdib.h>
+#include "buf.h"
+#include "dlist.h"
+#include "state.h"
+#include "getblk.h"
+
+void help_proc(int, char *[]);
+void init_proc(int, char *[]);
+void buf_proc(int, char *[]);
+void hash_proc(int, char *[]);
+void free_proc(int, char *[]);
+void getblk_proc(int, char *[]);
+void brelse_proc(int, char *[]);
+void set_proc(int, char *[]);
+void reset_proc(int, char *[]);
+void quit_proc(int, char *[]);
+
+struct command_table{
+  char *cmd;
+  void (*func)(int, char *[]);
+};
+
+struct command_table cmd_tbl[]{
+  {"help", help_proc},
+  {"init", init_proc},
+  {"buf", buf_proc},
+  {"hash", hash_proc},
+  {"free", free_proc},
+  {"getblk", getblk_proc},
+  {"brelse", brelse_proc},
+  {"set", set_proc},
+  {"reset", reset_proc},
+  {"quit", quit_proc},
+  {NULL, NULL}
+};
+
+int main(){
+
+
+}
+
+
+void help_proc(int, char *[]);
+void init_proc(int, char *[]);
+void buf_proc(int, char *[]);
+void hash_proc(int, char *[]);
+void free_proc(int, char *[]);
+void getblk_proc(int, char *[]);
+void brelse_proc(int, char *[]);
+void set_proc(int, char *[]);
+void reset_proc(int, char *[]);
+void quit_proc(int, char *[]);
